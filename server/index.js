@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/public", express.static(path.join(__dirname, "..", "public")));
 
 app.use("/api/words", require("./api/wordRoute"));
+app.use("/api", require("./api/glossaryRoute"));
 
 app.get("/", (req, res, next) => {
   res.sendFile(path.join(__dirname, "..", "public", "index.html"));

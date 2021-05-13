@@ -100,6 +100,15 @@ const seed = async () => {
       definition:
         "An astronomical body orbiting a star or stellar remnant that is massive enough to be rounded by its own gravity, is not massive enough to cause thermonuclear fusion",
     });
+    const inchoate = await Word.create({
+      term: "Inchoate",
+      definition: "Only partly in existence; imperfectly formed",
+    });
+    const serendipity = await Word.create({
+      term: "Serendipity",
+      definition:
+        "the occurrence and development of events by chance in a happy or beneficial way",
+    });
     await Glossary_Word.create({
       glossaryId: astronomyTerms.id,
       wordId: asteroid.id,
@@ -110,11 +119,11 @@ const seed = async () => {
     });
     await Glossary_Word.create({
       glossaryId: vocabulary.id,
-      wordId: asteroid.id,
+      wordId: inchoate.id,
     });
     await Glossary_Word.create({
       glossaryId: vocabulary.id,
-      wordId: planet.id,
+      wordId: serendipity.id,
     });
     await Glossary_Word.create({
       glossaryId: softwareTerms.id,

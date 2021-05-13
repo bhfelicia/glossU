@@ -28,4 +28,13 @@ const init = async () => {
   }
 };
 
-module.exports = { init };
+module.exports = {
+  init,
+  User,
+  Glossary,
+  Word,
+  Tag,
+  User_Glossary,
+  Glossary_Word,
+  Tag_Glossary,
+};

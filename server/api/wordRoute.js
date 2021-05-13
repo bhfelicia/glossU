@@ -1,4 +1,5 @@
 const axios = require("axios");
+const { Word, Glossary_Word } = require("../db/index");
 const router = require("express").Router();
 require("dotenv").config();
 
@@ -20,6 +21,16 @@ router.get("/:word", async (req, res, next) => {
     // const allDefs = [];
     // def.data[0].def[0].sseq.forEach((elem) => allDefs.push(elem[1].dt[1]));
     res.send(allDefs);
+  } catch (error) {
+    next(error);
+  }
+});
+router.post("/", async (req, res, next) => {
+  try {
+    const { newWord, definition, glossaryId } = req.body;
+    const theWord = await Word.create({ term: newWord, definition });
+    await Glossary_Word.create({ wordId: theWord.id, glossaryId });
+    res.send(theWord);
   } catch (error) {
     next(error);
   }
